@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  next-js-learning-app:
+    container_name: next-js-learning-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: npm start
+    restart: always
+    volumes:
+      - .:/usr/src/app:cached
+      - /usr/src/app/node_modules
+    ports:
+      - "3000:3000"
