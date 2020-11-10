@@ -5,10 +5,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: npm start
-    restart: always
+    command: npm run dev
+    restart: unless-stopped
     volumes:
-      - .:/usr/src/app:cached
+      - .:/usr/src/app
       - /usr/src/app/node_modules
     ports:
       - "3000:3000"

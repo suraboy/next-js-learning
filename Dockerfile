@@ -1,23 +1,18 @@
-FROM node:lts-alpine
+FROM node:10
 
-# install simple http server for serving static content
-RUN npm install -g http-server
+RUN yarn global add pm2
+# Setting working directory. All the path will be relative to WORKDIR
+WORKDIR /usr/src/app
 
-# make the 'app' folder the current working directory
-WORKDIR /app
-
-# copy both 'package.json' and 'package-lock.json' (if available)
+# Installing dependencies
 COPY package*.json ./
-
-# install project dependencies
 RUN npm install
 
-# copy project files and folders to the current working directory (i.e. 'app' folder)
+# Copying source files
 COPY . .
 
-# build app for production with minification
+# Building app
 RUN npm run build
 
-EXPOSE 3000
-
-CMD npm start
+# Running the app
+CMD [ "npm", "start" ]

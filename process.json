@@ -1,0 +1,9 @@
+{
+  "apps": [
+    {
+      "name": "next-js-learning",
+      "script": "npm",
+      "args": "run dev"
+    }
+  ]
+}
