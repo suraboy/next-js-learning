@@ -1,6 +1,5 @@
 FROM node:10
 
-RUN yarn global add pm2
 # Setting working directory. All the path will be relative to WORKDIR
 WORKDIR /usr/src/app
 
