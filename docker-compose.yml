@@ -12,3 +12,7 @@ services:
       - /usr/src/app/node_modules
     ports:
       - "3000:3000"
+    environment:
+      APP_ENV: local
+      NODE_ENV: local
+      HTTPS_METHOD: noredirect # support both http and https
